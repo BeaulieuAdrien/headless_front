@@ -13,3 +13,28 @@
     font-style: italic;
 }
 
+commentaires {
+    margin-left: 20px;
+}
+
+.comment-box {
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.comment-box strong {
+    color: #0066cc;
+}
+
+.comment-box h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.comment-box p {
+    color: #666;
+}

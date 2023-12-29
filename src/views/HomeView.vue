@@ -17,7 +17,6 @@ onMounted(async () => {
 
 <template>
   <main>
-      <pre>{{ boutiques }}</pre>
       <div v-for="boutique in boutiques.data" :key="boutique.id" class="boutique">
         <h2>{{ boutique.attributes.name }}</h2>
         <p class="description">{{ boutique.attributes.description }}</p>

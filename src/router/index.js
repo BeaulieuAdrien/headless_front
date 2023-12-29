@@ -9,6 +9,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    {
+    path: '/boutique/:id',
+    name: 'shop',
+    component: () => import(/* webpackChunkName: "shop" */ '../views/ShopView.vue')
+    }
   ]
 })
 
