@@ -13,6 +13,25 @@
         isMounted.value = true
     })
 
+    const newComment = ref({
+        username: "",
+        title: "",
+        description: "",
+        shop: route.params.id
+    });
+
+    async function addComment() {
+        try {
+            const id = route.params.id;
+            console.log(newComment);
+            await axios.post(`http://localhost:1337/api/comments`, { data: newComment.value});
+            console.log('Comment added');
+            await getShop();
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     async function getShop() {
         console.log('here')
         try {
@@ -42,5 +61,22 @@
                 <p>{{ comment.attributes.description }}</p>
             </div>
         </div>
+
+        <div class="ajouter-commentaire">
+            <h2>Ajouter un commentaire</h2>
+            <form @submit.prevent="addComment">
+                <label for="username">Nom d'utilisateur:</label>
+                <input v-model="newComment.username" type="text" id="username" required>
+
+                <label for="title">Titre du commentaire:</label>
+                <input v-model="newComment.title" type="text" id="title" required>
+
+                <label for="description">Description:</label>
+                <textarea v-model="newComment.description" id="description" required></textarea>
+
+                <button type="submit">Ajouter le commentaire</button>
+            </form>
+        </div>
+
     </main>
 </template>
